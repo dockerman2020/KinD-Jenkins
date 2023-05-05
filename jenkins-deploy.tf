@@ -22,9 +22,7 @@ resource "kubernetes_manifest" "deployment_devops_tools_jenkins" {
         "spec" = {
           "containers" = [
             {
-              # "image" = "jenkins/jenkins:lts"
-              # "image" = "jenkins/jenkins:2.387.3-lts-jdk11@sha256:e34a63e1292b70f23e4393d7d7405e7e7ec7108d2faf16496b977461f9232f99"
-              "image" = "dockerman2002/jenkins-lts:latest"
+              "image" = "jenkins/jenkins:2.387.3-lts-jdk11@sha256:e34a63e1292b70f23e4393d7d7405e7e7ec7108d2faf16496b977461f9232f99"
               "livenessProbe" = {
                 "failureThreshold" = 5
                 "httpGet" = {
@@ -59,11 +57,11 @@ resource "kubernetes_manifest" "deployment_devops_tools_jenkins" {
               "resources" = {
                 "limits" = {
                   "cpu" = "2"
-                  "memory" = "4Gi"
+                  "memory" = "2Gi"
                 }
                 "requests" = {
                   "cpu" = "1"
-                  "memory" = "2Gi"
+                  "memory" = "1Gi"
                 }
               }
               "volumeMounts" = [
