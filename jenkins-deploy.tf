@@ -1,4 +1,4 @@
-resource "kubernetes_manifest" "deployment_devops_tools_jenkins" {
+resource "kubernetes_manifest" "deployment_jenkins" {
   manifest = {
     "apiVersion" = "apps/v1"
     "kind" = "Deployment"
@@ -90,6 +90,6 @@ resource "kubernetes_manifest" "deployment_devops_tools_jenkins" {
     }
   }
   depends_on = [ 
-    kubernetes_manifest.persistentvolumeclaim_devops_tools_jenkins_pv_claim
+    kubernetes_manifest.persistentvolumeclaim_jenkins_pv_claim
     ]
 }

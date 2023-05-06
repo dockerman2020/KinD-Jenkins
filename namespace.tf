@@ -14,3 +14,15 @@ resource "kubernetes_namespace" "jenkins_ns" {
     name = "jenkins"
   }
 }
+
+resource "kubernetes_namespace" "jenkins_agent" {
+  metadata {
+    annotations = {
+      name = "jenkins-worker"
+    }
+    labels = {
+      "kubernetes.io/metadata.name" = "jenkins-worker"
+    }
+    name = "jenkins-worker"
+  }
+}

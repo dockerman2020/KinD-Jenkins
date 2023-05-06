@@ -24,7 +24,7 @@ resource "kubernetes_manifest" "clusterrole_jenkins_admin" {
   }
 }
 
-resource "kubernetes_manifest" "serviceaccount_devops_tools_jenkins_admin" {
+resource "kubernetes_manifest" "serviceaccount_jenkins_admin" {
   manifest = {
     "apiVersion" = "v1"
     "kind" = "ServiceAccount"

@@ -20,6 +20,6 @@ spec:
                 number: 80
 YAML
 depends_on = [ 
-    kubernetes_manifest.deployment_devops_tools_jenkins
+    kubernetes_manifest.deployment_jenkins
      ]
 }
