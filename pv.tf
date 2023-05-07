@@ -20,7 +20,7 @@ resource "kubernetes_manifest" "persistentvolume_jenkins_pv_volume" {
         "namespace" = "jenkins"
       }
       "local" = {
-        "path" = "/jenkins_data"
+        "path" = "/ContainerData/Jenkins"
       }
       "nodeAffinity" = {
         "required" = {
