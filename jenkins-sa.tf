@@ -30,7 +30,7 @@ resource "kubernetes_manifest" "serviceaccount_jenkins_admin" {
     "kind" = "ServiceAccount"
     "metadata" = {
       "name" = "jenkins-admin"
-      "namespace" = "jenkins"
+      "namespace" = data.kubernetes_resource.jenkins_ns.metadata[0].namespace
     }
   }
 }
@@ -51,7 +51,7 @@ resource "kubernetes_manifest" "clusterrolebinding_jenkins_admin" {
       {
         "kind" = "ServiceAccount"
         "name" = "jenkins-admin"
-        "namespace" = "jenkins"
+        "namespace" = data.kubernetes_resource.jenkins_ns.metadata[0].namespace
       },
     ]
   }

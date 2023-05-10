@@ -17,7 +17,7 @@ resource "kubernetes_manifest" "persistentvolume_jenkins_pv_volume" {
       }
       "claimRef" = {
         "name" = "jenkins-pv-claim"
-        "namespace" = "jenkins"
+        "namespace" = data.kubernetes_resource.jenkins_ns.metadata[0].namespace
       }
       "local" = {
         "path" = "/ContainerData/Jenkins"

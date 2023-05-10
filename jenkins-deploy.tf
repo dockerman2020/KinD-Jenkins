@@ -3,8 +3,8 @@ resource "kubernetes_manifest" "deployment_jenkins" {
     "apiVersion" = "apps/v1"
     "kind" = "Deployment"
     "metadata" = {
-      "name" = "jenkins"
-      "namespace" = "jenkins"
+      "name" = data.kubernetes_resource.jenkins_ns.metadata[0].name
+      "namespace" = data.kubernetes_resource.jenkins_ns.metadata[0].namespace
     }
     "spec" = {
       "replicas" = 1

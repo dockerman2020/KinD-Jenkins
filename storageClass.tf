@@ -10,6 +10,7 @@ resource "kubernetes_manifest" "storageclass_local_storage" {
     "volumeBindingMode" = "WaitForFirstConsumer"
   }
   depends_on = [ 
-    kubernetes_namespace.jenkins_ns
+    # kubernetes_namespace.jenkins_ns,
+    data.kubernetes_resource.jenkins_ns
      ]
 }

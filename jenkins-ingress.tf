@@ -4,7 +4,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: jenkins-ingress
-  namespace: jenkins
+  namespace: ${data.kubernetes_resource.jenkins_ns.metadata[0].namespace}
 spec:
   ingressClassName: nginx
   rules:

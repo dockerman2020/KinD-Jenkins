@@ -4,7 +4,7 @@ resource "kubernetes_manifest" "persistentvolumeclaim_jenkins_pv_claim" {
     "kind" = "PersistentVolumeClaim"
     "metadata" = {
       "name" = "jenkins-pv-claim"
-      "namespace" = "jenkins"
+      "namespace" = data.kubernetes_resource.jenkins_ns.metadata[0].namespace
     }
     "spec" = {
       "accessModes" = [

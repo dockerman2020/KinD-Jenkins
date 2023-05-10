@@ -3,26 +3,20 @@ provider "kubernetes" {
   config_context = "kind-terraform"
 }
 
-resource "kubernetes_namespace" "jenkins_ns" {
+data "kubernetes_resource" "jenkins_ns" {
+  api_version = "v1"
+  kind        = "Namespace"
   metadata {
-    annotations = {
-      name = "jenkins-annotation"
-    }
-    labels = {
-      "kubernetes.io/metadata.name" = "jenkins"
-    }
-    name = "jenkins"
+    name      = "jenkins"
+    namespace = "jenkins"
   }
 }
 
-resource "kubernetes_namespace" "jenkins_agent" {
+data "kubernetes_resource" "jenkins-worker_ns" {
+  api_version = "v1"
+  kind        = "Namespace"
   metadata {
-    annotations = {
-      name = "jenkins-worker"
-    }
-    labels = {
-      "kubernetes.io/metadata.name" = "jenkins-worker"
-    }
-    name = "jenkins-worker"
+    name      = "jenkins-worker"
+    namespace = "jenkins-worker"
   }
 }

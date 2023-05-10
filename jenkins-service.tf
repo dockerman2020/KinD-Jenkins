@@ -9,7 +9,7 @@ resource "kubernetes_manifest" "jenkins_service" {
         "prometheus.io/scrape" = "true"
       }
       "name" = "jenkins-service"
-      "namespace" = "jenkins"
+      "namespace" = data.kubernetes_resource.jenkins_ns.metadata[0].namespace
     }
     "spec" = {
       "ipFamilies" = [
